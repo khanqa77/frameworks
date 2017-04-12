@@ -1,0 +1,280 @@
+what is the use of framework in automation testing
+      Ans:  Framework is nothing but it is separate project contains packages/classes/methods.
+               generally framework contains reusable components/code 
+               Ex: in framework i created classes/methods to handle exceptions/custom reports, reading data from database, excel file
+                    
+              It will be a jar file in java
+              It will be DLL in C# 
+
+               in automation code we add this jar/dll’s (using buildpath->add external jar files option) and call appropriate classes/method Whenever it is required
+              
+      Ex: selenium jar file is framework and we add this file jar file in our project
+            We use classes/methods of selenium framework (WebDriver, Webelement classes, get method)
+
+what are things u consider/keep in framework 
+      Ans: Create classes/methods to handle exceptions/custom reports, reading data from database, excel file
+
+     Ex: 
+
+different types of frameworks we have in selenium/qtp
+      Ans: Data driven, hybrid, keyword driven, BDD
+
+what is data driven frame work and when do we use it?
+      Ans: to test same functionality more than once with different set of data/input data
+              We store the test data in external files (excel/csv) or table.
+
+              
+
+what is keyword frame work and when do we use it?
+
+The Keyword-Driven or Table-Driven framework requires the development of data tables and keywords, independent of the test automation tool used to execute them . Tests can be designed with or without the Application. In a keyword-driven test, the functionality of the application-under-test is documented in a table as well as in step-by-step instructions for each test.
+
+There are 3 basis components of a Keyword Driven Framework viz. Keyword , Application Map , Component Function.
+
+    What is a Keyword ?
+
+     Keyword is an Action that can be performed on a GUI Component. Ex . For GUI Component Textbox some Keywords ( Action) would be      InputText, VerifyValue, VerifyProperty and so on.
+
+    What is Application Map?
+
+     An Application Map Provides Named References for GUI Components. Application Maps are nothing but "Object Repositry"
+
+    What is Component Function?
+
+     Component Functions are those functions that actively manipulate or interrogate GUI component. An example of a function would be      click on web button with all error handling , enter data in a Web Edit with all error handling. Component functions could be      application dependent or independent.
+
+
+what is hybrid framework and when do we use it
+
+As the name suggests this framework is the combination of one or more frameworks discussed above pulling from their strengths and trying to mitigate their weaknesses. This hybrid test automation framework is what most frameworks evolve into over time and multiple projects. Maximum industry uses Keyword Framework in combination of Function decomposition method.
+
+what is POM and modular framework
+
+A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects. Examples for this is the build directory, which is target; the source directory, which is src/main/java; the test source directory, which is src/test/java; and so on.
+
+The POM was renamed from project.xml in Maven 1 to pom.xml in Maven 2. Instead of having a maven.xml file that contains the goals that can be executed, the goals or plugins are now configured in the pom.xml. When executing a task or goal, Maven looks for the POM in the current directory. It reads the POM, gets the needed configuration information, then executes the goal.
+
+Modular Framework
+
+In most of the web application we have few set of actions which are always executed in the series of actions. Rather than writing those actions again and again in our test, we can club those actions in to a method and then calling that method in our test script. Modularity avoids duplicacy of code. In future if there is any change in the series of action, all you have to do is to make changes in your main modular method script. No test case will be impacted with the change.
+
+what is testng and junit?
+
+Similarities Between JUnit and TestNG
+-----------------------------------------
+We can create test suite in JUnit and TestNG both frameworks.
+Timeout Test Is possible very easily in both the frameworks.
+We can ignore specific test case execution of software web application from suite in both the frameworks.
+It is possible to create expected exception test for software web application in both the frameworks.
+Annotations - Few annotations are similar in both frameworks suite like @Test, @BeforeClass, @AfterClass. JUnit's Annotations @Before and @After are similar to TestNG's @BeforeMethod and @AfterMethod annotations.
+Difference Between JUnit and TestNG
+------------------------------------
+In TestNG, Parameterized test configuration is very easy while It is very hard to configure Parameterized test in JUnit.
+TestNG support group test but it is not supported in JUnit.
+TestNG has a feature to configure dependency test. 
+Dependency test configuration for software web application is not possible in JUnit.
+TestNG support @BeforeTest, @AfterTest, @BeforeSuite, @AfterSuite, @BeforeGroups, @AfterGroups which are not supported in JUnit.
+Test prioritization, Parallel testing is possible in TestNG. It is not supported by JUnit.
+
+
+
+writing unit test cases with testng
+
+Writing a test in TestNG basically involves the following steps:
+----------------------------------------------------------------
+Write the business logic of your test and insert TestNG annotations in your code.
+Add the information about your test (e.g. the class name, the groups you wish to run, etc.) in a testng.xml file or in build.xml.
+Run TestNG.
+
+Sample Program:
+---------------
+
+package example;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class MeatLife 
+{
+	@BeforeMethod
+	public void Chicken()
+	{
+	 
+		System.out.println(" ....Get me some chicken...");
+		
+	}
+	@Test(priority=2)
+	public void Mutton()
+	{
+		
+		System.out.println(" ....Get me some Mutton...");
+		
+	}
+	@Test(priority=3)
+	public void Market()
+	{
+		
+		System.out.println(" ....Hell of meat market...");
+		
+	}
+	@AfterMethod
+	public void Bargain()
+	{
+		
+		System.out.println(" ...Never hesitate to bargain....");
+		
+	}
+}
+
+
+what are important elements in testng.xml
+
+1: dataProvider
+	The name of the data provider for this test method.
+2: dataProviderClass
+The class where to look for the data provider.
+3:dependsOnGroups
+The list of groups this method depends on.
+4:dependsOnMethods
+The list of methods this method depends on.
+5:description
+The description for this method.
+6:boolean enabled
+Whether methods on this class/method are enabled.
+7:expectedExceptions
+The list of exceptions that a test method is expected to throw.
+8:expectedExceptionsMessageRegExp
+If expectedExceptions was specified, its message must match the regular expression specified in this attribute.
+9:groups
+The list of groups this class/method belongs to.
+10:boolean ignoreMissingDependencies
+If set to true, this test will run even if the methods it depends on are missing or excluded.
+11:int invocationCount
+The number of times this method should be invoked.
+
+what are different annotations in testng and junit
+
+Annotation	Description
+@BeforeSuite	The annotated method will be run only once before all tests in this suite have run.
+@AfterSuite	The annotated method will be run only once after all tests in this suite have run.
+@BeforeClass	The annotated method will be run only once before the first test method in the current class is invoked.
+@AfterClass	The annotated method will be run only once after all the test methods in the current class have been run.
+@BeforeTest	The annotated method will be run before any test method belonging to the classes inside the <test> tag is run.
+@AfterTest	The annotated method will be run after all the test methods belonging to the classes inside the <test> tag have run.
+@BeforeGroups	The list of groups that this configuration method will run before. This method is guaranteed to run shortly before the first test method that belongs to any of these groups is invoked.
+@AfterGroups	The list of groups that this configuration method will run after. This method is guaranteed to run shortly after the last test method that belongs to any of these groups is invoked.
+@BeforeMethod	The annotated method will be run before each test method.
+@AfterMethod	The annotated method will be run after each test method.
+@DataProvider	Marks a method as supplying data for a test method. The annotated method must return an Object[][] where each Object[] can be assigned the parameter list of the test method. The @Test method that wants to receive data from this DataProvider needs to use a dataProvider name equals to the name of this annotation.
+@Factory	Marks a method as a factory that returns objects that will be used by TestNG as Test classes. The method must return Object[].
+@Listeners	Defines listeners on a test class.
+@Parameters	Describes how to pass parameters to a @Test method.
+@Test	Marks a class or a method as part of the test.
+
+what is group and suite and parallel execution in testng
+
+TestNG allows us to perform sophisticated groupings of test methods.
+
+Using TestNG we can execute only set of groups while excluding another set. This gives us the maximum flexibility in divide tests and doesn't require us to recompile anything if you want to run two different sets of tests back to back.
+
+Groups are specified in testng.xml file and can be used either under the or tag. Groups specified in the tag apply to all the tags underneath.
+
+package test;
+
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class RoughData 
+{
+
+	@Test(dataProvider="my values")
+	public void Sum(String x,String y)
+	{
+	int z=Integer.parseInt(x)+Integer.parseInt(y);
+	System.out.println("sum of two values is"+z);
+	
+	}
+	@DataProvider(name="my values")
+	public String[][] Content()
+	{
+		int a=10;
+		int b=20;
+		String[][] s=new String[1][2];
+		s[0][0]=Integer.toString(a);
+		s[0][1]=Integer.toString(b);
+		return s;
+		
+		
+		
+	}
+}
+
+
+how to decide which test cases needs to be automated
+
+Step 1:
+Identify the parameters on which you will base your test case as a candidate for automation.
+Step 2:
+Break each application into modules. For each module, analyze and try to identify the test cases which should be automated based on the parameters.
+Step 3:
+Consolidate and group the number of test cases for each module.
+
+
+what are the steps in automation testing or when do we automation testing?
+       Ans: write manual test cases (if they are not there)
+                out of all manual test cases we will pick test cases that are of regression testing 
+                        (test cases that needs to be executed)  
+                put all positive scenarios in regression 
+                we dont put any UI related changes in regression testing
+
+      15) what is the use of dataprovider annotation
+
+Ans: We can Pass values from one test case to another Test case.
+
+package example;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Mass 
+{
+	@Test(dataProvider="My Values")
+	public void MixedCal(String x,String y)
+	{
+		int z=Integer.parseInt(x)*Integer.parseInt(y);
+		System.out.println("The Mixed Calculus value"+z);
+		
+	}
+	@DataProvider(name="My Values")
+	public String[][] Values()
+	{
+		int a=5;
+		int b=10;
+		int c=15;
+		int d=20;
+		// Store all values in the String Array
+		
+		String[][] s=new String[2][2];
+		
+		s[0][0]=Integer.toString(a);
+		
+		s[0][1]=Integer.toString(b);
+		
+		s[1][0]=Integer.toString(c);
+		
+		s[1][1]=Integer.toString(d);
+		
+		return s;
+		
+	}
+
+17) how to generate reports using testng
+
+Ans: The Reports will be automatically generated and stored as xml files with extensions " .xml" and " .html" with in the project that we are performing.
+      
+Reporting is the most important part of any test execution, as it helps the user understand the result of the test execution, point of failure, and the reasons for failure. 
+TestNG, by default, generates a different type of report for its test execution. This includes an HTML and an XML report output. TestNG also allows its users to write their own reporter and use it with TestNG. 
+There is also an option to write your own loggers, which are notified at runtime by TestNG.
+
